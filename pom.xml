@@ -11,30 +11,36 @@
     <properties>
         <maven.compiler.source>18</maven.compiler.source>
         <maven.compiler.target>18</maven.compiler.target>
-        <lib_directory>${project.build.directory}/dependencies/</lib_directory>
+        <!--base directory for dependency jars-->
+        <dependencies>${project.build.directory}/dependencies/</dependencies>
+        <!--versions of used libraries-->
+        <junit-jupiter-engine.version>5.8.2</junit-jupiter-engine.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
+        <javafx-controls.version>18.0.1</javafx-controls.version>
+        <desktop-game-engine.version>1.0</desktop-game-engine.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.12.0</version>
+            <version>${commons-lang3.version}</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>18.0.1</version>
+            <version>${javafx-controls.version}</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.8.2</version>
+            <version>${junit-jupiter-engine.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.javarush</groupId>
             <artifactId>desktop-game-engine</artifactId>
-            <version>1.0</version>
+            <version>${desktop-game-engine.version}</version>
         </dependency>
 
     </dependencies>
@@ -42,7 +48,7 @@
     <build>
         <resources>
             <resource>
-                <directory>${lib_directory}</directory>
+                <directory>${dependencies}</directory>
             </resource>
         </resources>
         <plugins>
@@ -75,7 +81,7 @@
                 <version>2.5.1</version>
                 <configuration>
                     <outputDirectory>
-                        ${lib_directory}/lib/
+                        ${dependencies}/lib/
                     </outputDirectory>
                 </configuration>
                 <executions>
